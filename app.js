@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
-const mainRoutes = require('./src/routes/main');
+const mainRouter = require('./src/routes/mainRouter');
 
 const publicPath = path.resolve(__dirname, './public');
 app.use(express.static(publicPath));
@@ -15,4 +15,4 @@ app.listen(app.get('puerto'), () => {
 } );
 
 
-app.use(mainRoutes); 
+app.use(mainRouter); 
