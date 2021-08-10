@@ -3,8 +3,128 @@
 <head>
     <%- include('../partials/head'); %>
 </head>
-<body>
+<body class="bg-light min-vh-100">
+
     <%- include('../partials/header'); %>
     
+    <main>
+
+        <%- include('../partials/sliderHeader'); %>
+        
+        <section class="d-flex justify-content-center m-4">
+            <img src="/images/web/iconos-banner.png" alt="" class="w-75">
+        </section>
+
+        <section class="container-lg bg-white rounded my-4">
+            <div class="mx-1 mx-md-4">
+                
+                <div class="p-2 p-md-4">
+                    
+                    <div class="my-4">
+                        <h4 class="text-primary"><strong>POPULARES</strong></h4>
+                        <div class="my-1 row row-cols-1 row-cols-sm-2 row-cols-xl-4 g-4">
+                        <% productos.forEach( producto => { %>
+                            <div class="col">
+                                <div class="card h-100">
+                                    <img src="/images/products/producto-1621640398775.jpg" class="border-bottom card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h6 class="card-title"><strong class="text-primary">CARD TITLE</strong></h6>
+                                        <p><small class="text-secondary">Codigo: HHHHHHHHHHHHHHH</small></p>
+                                        <div class="d-flex justify-content-between">
+                                            <span>$10000000 <small>(iva incl.)</small> </span>
+                                            <span class="text-secondary"><small>EN STOCK</small></span>
+                                        </div>
+                                        <a href="#" class="mt-2 w-100 btn btn-outline-primary">VER MAS</a>
+                                    </div>
+                                </div>
+                            </div>
+                        <% }); %>
+                        </div>
+                    </div>
+                    
+                    <div class="my-4">
+                        <h4 class="text-primary"><strong>OFERTAS</strong></h4>
+                        <div class="my-1 row row-cols-1 row-cols-sm-2 row-cols-xl-4 g-4">
+                        <% productos.forEach( producto => { %>
+                            <div class="col">
+                                <div class="card h-100">
+                                    <img src="/images/products/producto-1621640398775.jpg" class="border-bottom card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h6 class="card-title"><strong class="text-primary">CARD TITLE</strong></h6>
+                                        <p><small class="text-secondary">Codigo: HHHHHHHHHHHHHHH</small></p>
+                                        <div class="d-flex justify-content-between">
+                                            <span>$10000000 <small>(iva incl.)</small> </span>
+                                            <span class="text-secondary"><small>EN STOCK</small></span>
+                                        </div>
+                                        <a href="#" class="mt-2 w-100 btn btn-outline-primary">VER MAS</a>
+                                    </div>
+                                </div>
+                            </div>
+                        <% }); %>
+                        </div>
+                    </div>
+
+                    <div class="my-4">
+                        <h4 class="text-primary"><strong>AÑADIDOS RECIENTEMENTE</strong></h4>
+                        <div class="my-0 row row-cols-1 row-cols-sm-2 row-cols-xl-4 g-4">
+                        <% productos.forEach( producto => { %>
+                            <div class="col">
+                                <div class="card h-100">
+                                    <img src="/images/products/producto-1621640398775.jpg" class="border-bottom card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h6 class="card-title"><strong class="text-primary">CARD TITLE</strong></h6>
+                                        <p><small class="text-secondary">Codigo: HHHHHHHHHHHHHHH</small></p>
+                                        <div class="d-flex justify-content-between">
+                                            <span>$10000000<small>(iva incl.)</small> </span>
+                                            <span class="text-secondary"><small>EN STOCK</small></span>
+                                        </div>
+                                        <a href="#" class="mt-2 w-100 btn btn-outline-primary">VER MAS</a>
+                                    </div>
+                                </div>
+                            </div>
+                        <% }); %>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <%- include('../partials/sliderFooter'); %>
+
+        <section class="container-fluid bg-primary p-4 my-4">
+            <div class="row justify-content-between">
+                <div class="col-sm-6">
+
+                    <form class="validate" action="" method="post" type="contact" id="consulta2">
+                        <div class="form-group">
+                            <h3 class="text-white mb-4"><strong>CONTACTANOS</strong></h3>
+                            <input class="form-control my-3" type="text" name="razon" placeholder="Nombre y Apellido*">
+                            <input class="form-control my-3" type="text" name="empresa" placeholder="Empresa">
+                            <input class="form-control my-3" type="text" name="telefono" placeholder="Teléfono">
+                            <input class="form-control my-3" type="email" name="mail" placeholder="E-mail*">
+                            <textarea class="form-control my-3" name="cuerpo" rows="5"></textarea>
+                            <input type="hidden" name="formulario" value="home">
+                            <div class="d-flex justify-content-end">
+                                <button type="button" id="btn-enviar2" class="px-4 btn btn-light">Enviar</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="col-sm-6">
+                    <h3 class="text-white mb-4"><strong>DONDE ENCONTRARNOS</strong></h3>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.016887889514!2d-58.38375908501882!3d-34.60373446500553!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4aa9f0a6da5edb%3A0x11bead4e234e558b!2sObelisco!5e0!3m2!1ses!2sar!4v1619403275846!5m2!1ses!2sar" class="rounded" style="border:0;" width="100%" height="420" frameborder="0" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            
+            </div>
+            
+        
+        </section>
+        
+        
+    </main>
+    <%- include('../partials/footer'); %>
 </body>
 </html>

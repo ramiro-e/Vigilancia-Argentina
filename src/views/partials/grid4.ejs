@@ -1,0 +1,21 @@
+<div class="p-4">
+    <h2>Productos destacados</h2>
+    <div class="my-0 row row-cols-1 row-cols-sm-2 row-cols-xl-4 g-4">
+    <% productos.forEach( producto => { %>
+        <div class="col">
+            <div class="card h-100">
+                <img src="/images/products/producto-1621640398775.jpg" class="border-bottom card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title"><strong class="text-primary">CARD TITLE</strong></h5>
+                    <p>Codigo: 5992y9nrk2b</p>
+                    <div class="d-flex justify-content-between">
+                        <span>$50000000 <small>(iva incl.)</small> </span>
+                        <span class="text-secondary"><small>EN STOCK</small></span>
+                    </div>
+                    <a href="#" class="mt-2 w-100 btn btn-outline-primary">VER MAS</a>
+                </div>
+            </div>
+        </div>
+    <% }); %>
+    </div>
+</div>
