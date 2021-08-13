@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('../partials/head'); %>
+</head>
+<body>
+    <%- include('../partials/header'); %>
+    <main class="bg-light">
+        <section class="container-lg">
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-3">
+                    <div class="row mt-1 ">
+                        <div class="col-sm-12 bg-white mt-4 rounded border py-2">
+                            <div class="d-flex align-items-center justify-content-center text-secondary h5 p-2  my-1 rounded bg-light">
+                                <i class="fas fa-filter"></i> <span class="ms-2">Filtros</span>                         
+                            </div>
+                            <form action=""></form>
+                            <ul class="nav nav-pills flex-column" id="menu">
+                                <li class="filter-dropdown w-100">
+                                    <a class="d-flex justify-content-between align-items-center text-decoration-none text-secondary rounded bg-light p-2 my-1" href="#orderby" data-bs-toggle="collapse">
+                                        <span>Ordenar por</span><i class="fas fa-chevron-down"></i>
+                                    </a>
+                                    <ul class="ms-2 collapse nav flex-column" id="orderby" data-bs-parent="#menu">
+                                        <li class=" w-100">
+                                            <a href="#" class="text-decoration-none text-decoration-none text-secondary"><small>Mas populares</small> </a>
+                                        </li>
+                                        <li class=" w-100">
+                                            <a href="#" class="text-decoration-none text-decoration-none text-secondary"><small>Añadidos recientemente</small> </a>
+                                        </li>
+                                        <li class=" w-100">
+                                            <a href="#" class="text-decoration-none text-decoration-none text-secondary"><small>Mayor precio</small> </a>
+                                            
+                                        </li>
+                                        <li class=" w-100">
+                                            <a href="#" class="text-decoration-none text-decoration-none text-secondary"><small>Menor precio</small> </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="filter-dropdown">
+                                    <a class="d-flex justify-content-between align-items-center text-decoration-none text-secondary rounded bg-light p-2 my-1" href="#category" data-bs-toggle="collapse">
+                                        <span>Categoria</span><i class="fas fa-chevron-down"></i>
+                                    </a>
+                                    <ul class="ms-2 collapse nav flex-column" id="category" data-bs-parent="#menu">
+                                        <% if(typeof(categories) != 'undefined'){categories.forEach( category => { %>
+                                            <li class=" w-100">
+                                                <a href="#" class="text-decoration-none text-decoration-none text-secondary"><small><%= category %></small></a>
+                                            </li>
+                                        <% })} %>
+                                    </ul>
+                                </li>
+                                <li class="filter-dropdown">
+                                    <a class="d-flex justify-content-between align-items-center text-decoration-none text-secondary rounded bg-light p-2 my-1" href="#brand" data-bs-toggle="collapse">
+                                        <span>Marca</span><i class="fas fa-chevron-down"></i>
+                                    </a>
+                                    <ul class="ms-2 collapse nav flex-column" id="brand" data-bs-parent="#menu">
+                                        <% if(typeof(brands) != 'undefined'){brands.forEach( brand => { %>
+                                            <li class=" w-100">
+                                                <a href="#" class="text-decoration-none text-decoration-none text-secondary"><small><%= brand %></small></a>
+                                            </li>
+                                        <% })} %>
+                                    </ul>
+                                </li>
+                                <li class="filter-dropdown" id="price-dropdown">
+                                    <a class="d-flex justify-content-between align-items-center text-decoration-none text-secondary rounded bg-light p-2 my-1" href="#price" data-bs-toggle="collapse">
+                                        <span>Precio</span><i class="fas fa-chevron-down"></i>
+                                    </a>
+                                    <ul class="collapse nav flex-column" id="price" data-bs-parent="#menu">
+                                        <li class="w-100">
+                                            <div>
+                                                <form action="/price">
+                                                <div class="d-flex justify-content-between align-items-center my-2">
+                                                    <input type="text" name="min" id="" class="w-50 mx-1 form-control" placeholder="Min">
+                                                    <i class="text-secondary fas fa-minus"></i>
+                                                    <input type="text" name="max" id="" class="w-50 mx-1 form-control" placeholder="Max">
+                                                </div>
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <button type="submit" class="w-100 mx-1 btn btn-outline-primary"><span>Filtrar</span> <i class="fas fa-filter"></i> </button>
+                                                </div>
+                                                </form>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="my-1 row row-cols-1 row-cols-sm-2 row-cols-xl-3 g-4">
+                        <% productos.forEach( producto => { %>
+                            <div class="col">
+                                <div class="card h-100">
+                                    <img src="/images/products/producto-1621640398775.jpg" class="border-bottom card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h6 class="card-title"><strong class="text-primary">CARD TITLE</strong></h6>
+                                        <p><small class="text-secondary">Codigo: HHHHHHHHHHHHHHH</small></p>
+                                        <div class="d-flex justify-content-between">
+                                            <span>$10000000 <small>(iva incl.)</small> </span>
+                                            <span class="text-secondary"><small>EN STOCK</small></span>
+                                        </div>
+                                        <a href="#" class="mt-2 w-100 btn btn-outline-primary">VER MAS</a>
+                                    </div>
+                                </div>
+                            </div>
+                        <% }); %>
+                    </div>
+                    <div class="d-flex justify-content-center my-4">
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination">
+                              <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                    <i class="fas fa-chevron-left"></i>
+                                </a>
+                              </li>
+                              <li class="page-item"><a class="page-link" href="#">1</a></li>
+                              <li class="page-item"><a class="page-link" href="#">2</a></li>
+                              <li class="page-item"><a class="page-link" href="#">3</a></li>
+                              <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
+                                    <i class="fas fa-chevron-right"></i>
+                                </a>
+                              </li>
+                            </ul>
+                          </nav>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <%- include('../partials/footer'); %>
+</body>
+</html>
