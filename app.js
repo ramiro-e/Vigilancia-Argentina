@@ -3,6 +3,7 @@ const path = require('path');
 const app = express();
 
 const mainRouter = require('./src/routes/mainRouter');
+const userRouter = require('./src/routes/userRouter');
 
 const publicPath = path.resolve(__dirname, './public');
 app.use(express.static(publicPath));
@@ -16,3 +17,4 @@ app.listen(app.get('puerto'), () => {
 
 
 app.use(mainRouter); 
+app.use(userRouter); 

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('../partials/head') %>
+<body>
+    <%- include('../partials/header') %>
+    <main class="bg-light min-vh-100">
+        <section class="container-lg">
+            <div class="row d-flex justify-content-center">
+                <div class="col-xs-12 col-md-6 col-lg-5 py-2"> 
+                    <div class="d-flex flex-column justify-content-between  bg-white p-4 rounded my-4 mx-2 h-100">		
+                        <div>
+                            <h3 class="text-center">¿Ya estás registrado? <br> <span>Inicia sesión</span></h3>
+                            <div class="pt-3">
+                                <small class="text-secondary">Si ya te registraste a nuestro sitio, ingresá el correo electrónico y la clave en el siguiente cuadro para comenzar a operar o para finalizar la operación.</small>
+                            </div>
+                        </div>
+                        <div>
+                            <form form action="/login" method="POST">
+                                <div class="my-2 d-flex flex-column">
+                                    <label for="email"><small class="text-secondary">Email</small></label>
+                                    <input name="email" type="text" class="form-control" placeholder="e-mail">
+                                </div>
+                                <div class="my-2 d-flex flex-column">
+                                    <label for="password"><small class="text-secondary">Contraseña</small></label>
+                                    <input name="password" class="form-control" type="password" placeholder="contraseña">
+                                </div>
+                                <div class="mt-4 d-flex align-items-center justify-content-between">
+                                    <a href="olvido_contrasena" class="forgot-pass"><small>¿Olvidaste tu clave?</small></a>
+                                    <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="box-container col-xs-12 col-md-6 col-lg-5 py-2">  
+                    <div class="d-flex flex-column justify-content-between  bg-white p-4 rounded my-4 mx-2 h-100">
+                        <div>
+                            <h3 class="text-center">¿Aun no tenes un usuario?<br> <span>Regístrate como cliente</span></h3>
+                            <div class="pt-3 text-secondary d-flex align-items-center">
+                                <i class="me-3 fas fa-info-circle"></i>
+                                <small>DigitCircuit es distribuidor mayorista de informática. Nuestras ventas son exclusivas al gremio IT.</small>
+                            </div>    
+                        </div>
+                        <div>
+                            <div class="text-center w-100">
+                                <a href="/register" class="btn btn-outline-primary px-4">Registrarme</a>			
+                            </div>
+                            <hr class="divider-line">
+                            <div class="text-center">
+                                <small>¿Dudas o consultas?</small>
+                                <a href="mailto:contacto@digitcircuit.com.ar"><small>Contáctanos</small></a>
+                            </div>
+                        </div>
+ 
+                    </div>				
+                </div>
+            </div>
+        </section>
+    </main>
+    <%- include('../partials/footer') %>
+</body>
+</html>
