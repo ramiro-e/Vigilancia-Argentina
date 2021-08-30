@@ -1,14 +1,6 @@
-const express = require('express');
-const router = express.Router();
-const bcrypt = require('bcryptjs');
 const { body } = require('express-validator');
-const db = require('../database/models');
-const Users = db.User
-const userController = require('../controllers/userController.js');
 
-
-
-const validationLogin = [
+const validacionesLogin = [
     body('email').custom((value, { req }) => {
         return Users.findOne({where: {
             email: value
@@ -31,7 +23,7 @@ const ValidationRegister = [
     body('cuit').trim().isLength({ min:11, max:13 }).withMessage('El campo CUIT no puede estar vacio'),
     body('cuit').trim().matches(/\b(20|23|24|27|30|33|34)(\D)?[0-9]{8}(\D)?[0-9]/g).withMessage('El campo CUIT no cuenta con el formato correcto'),
     body('web').trim().isLength({ min:1 }).withMessage('El campo no puede estar vacio'),
-    body('web').trim().isURL().withMessage('El campo Web no cuenta con el formato correcto'),
+    body('web').trim().isEmail().withMessage('El campo Web no cuenta con el formato correcto'),
     body('phone').trim().isLength({ min:1 }).withMessage('El campo no puede estar vacio'),
     body('phone').trim().matches(/^\(?\d{2}\)?[\s\.-]?\d{4}[\s\.-]?\d{4}$/).withMessage('El campo Telefono no cuenta con el formato correcto'),
     
@@ -51,7 +43,6 @@ const ValidationRegister = [
     body('birthMonth').trim().isLength({ min:1 }).withMessage('El campo Mes no puede estar vacio'),
     body('birthYear').trim().isLength({ min:1 }).withMessage('El campo Año no puede estar vacio'),
     body('email').trim().isLength({ min:1 }).withMessage('El campo email no puede estar vacio'),
-    body('email').trim().isEmail().withMessage('El campo email no puede estar vacio'),
     body('password').isLength({min: 8 }).withMessage('La contraseña debe tener un mínimo de 8 caractéres'),
     body('repeatPassword').isLength({min: 8 }).withMessage('La confirmación de la contraseña debe tener un mínimo de 8 caractéres'),
     body('repeatPassword').custom((value, {req}) =>{
@@ -63,21 +54,4 @@ const ValidationRegister = [
     }).withMessage('Las contraseñas deben ser iguales'),
 ]
 
-// rutas del login
-router.get('/login', userController.login)
-router.post('/login', validationLogin, userController.access);
-router.get('/logout', userController.logout);
-
-// rutas del registro
-router.get('/register', userController.register)
-router.post('/register', ValidationRegister, userController.create);
-
-// rutas de la recuperación de contraseña
-router.get('/forgotPassword', userController.forgot);
-// router.post('/forgotPassword', userController.forgotProcess);
-router.get('/forgotPasswordMessage', userController.forgotMessage);
-
-
-
-
-module.exports = router;
+module.exports = validacionesLogin, ValidationRegister

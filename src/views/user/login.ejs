@@ -15,6 +15,15 @@
                             </div>
                         </div>
                         <div>
+                            <% if(typeof(errors) != 'undefined'){%>
+                                <div>
+                                    <ul class="list-unstyled">
+                                        <% errors.forEach(error => { %>
+                                            <li class="my-1 px-2 py-1 alert alert-danger"><%= error.msg %></li>
+                                        <%});%>
+                                    </ul>
+                                </div>
+                            <%}%>  
                             <form form action="/login" method="POST">
                                 <div class="my-2 d-flex flex-column">
                                     <label for="email"><small class="text-secondary">Email</small></label>
@@ -25,7 +34,7 @@
                                     <input name="password" class="form-control" type="password" placeholder="contraseña">
                                 </div>
                                 <div class="mt-4 d-flex align-items-center justify-content-between">
-                                    <a href="olvido_contrasena" class="forgot-pass"><small>¿Olvidaste tu clave?</small></a>
+                                    <a href="/forgotPassword" class="forgot-pass"><small>¿Olvidaste tu clave?</small></a>
                                     <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
                                 </div>
                             </form>
