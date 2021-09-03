@@ -23,8 +23,8 @@ module.exports = {
             .then((user) => {
                 delete user.password;
                 req.session.usuario = user;
-                if(req.body.recordarme){
-                    res.cookie('email', user.email,{maxAge: 1000 * 60 * 60 * 24})
+                if(req.body.rememberMe != undefined){
+                    res.cookie('email', user.email,{maxAge: 1000 * 60 * 60 * 24 * 365})
                 }
                 return res.redirect('/');
             })
@@ -38,7 +38,7 @@ module.exports = {
     },
     logout: (req,res) =>{
         req.session.destroy();
-        res.cookie('email',null,{maxAge: -1});
+        res.clearCookie('email');
         res.redirect('/')
     },
     register: (req,res) => {
