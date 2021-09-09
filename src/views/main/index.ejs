@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <%- include('../partials/head'); %>
-</head>
+<%- include('../partials/head'); %>
 <body class="bg-light min-vh-100">
 
     <%- include('../partials/header'); %>
@@ -22,6 +20,16 @@
             <div class="mx-1 mx-md-4">
                 
                 <div class="p-2 p-md-4">
+                    <% if(typeof(recentlyVisited) != 'undefined'){  %> 
+                    <div class="my-4">
+                        <h4 class="text-primary"><strong>VISITADOS RECIENTEMENTE</strong></h4>
+                        <div class="my-1 row row-cols-1 row-cols-sm-2 row-cols-xl-4 g-4">
+                        <% recentlyVisited.forEach( producto => { %>
+                            <%- include('../partials/productCard'); %>
+                        <% })}; %>
+                        </div>
+                    </div>
+                    <% } %> 
                     
                     <div class="my-4">
                         <h4 class="text-primary"><strong>OFERTAS</strong></h4>

@@ -5,5 +5,6 @@ const mainController = require('../controllers/mainController.js');
 
 router.get('/', mainController.index)
 router.get('/catalogo', mainController.catalog)
+router.get('/search/:id?', mainController.detalle)
 
 module.exports = router;
