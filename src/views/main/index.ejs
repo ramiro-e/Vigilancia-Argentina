@@ -19,23 +19,12 @@
         <section class="container-lg bg-white rounded my-4">
             <div class="mx-1 mx-md-4">
                 
-                <div class="p-2 p-md-4">
-                    <% if(typeof(recentlyVisited) != 'undefined'){  %> 
-                    <div class="my-4">
-                        <h4 class="text-primary"><strong>VISITADOS RECIENTEMENTE</strong></h4>
-                        <div class="my-1 row row-cols-1 row-cols-sm-2 row-cols-xl-4 g-4">
-                        <% recentlyVisited.forEach( producto => { %>
-                            <%- include('../partials/productCard'); %>
-                        <% })}; %>
-                        </div>
-                    </div>
-                    <% } %> 
-                    
+                <div class="p-2 p-md-4">                    
                     <div class="my-4">
                         <h4 class="text-primary"><strong>OFERTAS</strong></h4>
                         <div class="my-1 row row-cols-1 row-cols-sm-2 row-cols-xl-4 g-4">
-                        <% discounted.forEach( producto => { %>
-                            <%- include('../partials/productCard'); %>
+                        <% discounted.forEach( product => { %>
+                            <%- include('../partials/productCard', {product: product}); %>
                         <% }); %>
                         </div>
                     </div>
@@ -43,12 +32,11 @@
                     <div class="my-4">
                         <h4 class="text-primary"><strong>AÑADIDOS RECIENTEMENTE</strong></h4>
                         <div class="my-0 row row-cols-1 row-cols-sm-2 row-cols-xl-4 g-4">
-                        <% recentlyAdded.forEach( producto => { %>
-                            <%- include('../partials/productCard'); %>
+                        <% recentlyAdded.forEach( product => { %>
+                            <%- include('../partials/productCard', {product: product}); %>
                         <% }); %>
                         </div>
                     </div>
-
                 </div>
 
             </div>

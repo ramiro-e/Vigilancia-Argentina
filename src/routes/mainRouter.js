@@ -4,7 +4,6 @@ const router = express.Router();
 const mainController = require('../controllers/mainController.js');
 
 router.get('/', mainController.index)
-router.get('/catalogo', mainController.catalog)
-router.get('/search/:id?', mainController.detalle)
+router.get('/catalog', mainController.catalog)
 
 module.exports = router;
