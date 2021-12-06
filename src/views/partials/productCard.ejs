@@ -1,6 +1,6 @@
 <div class="col">
     <div class="card h-100">
-        <img src="/img/products/<%= product.image %>" class="border-bottom card-img-top" alt="...">
+        <img src="/images/products/<%= JSON.parse(product.image)[0] %>" class="border-bottom card-img-top" alt="...">
         <div class="card-body">
             <h6 class="card-title"><strong class="text-primary"><%= product.title %></strong></h6>
             <p><small class="text-secondary">Codigo:<%= product.sku %></small></p>
@@ -14,7 +14,7 @@
                     <% } %> 
                 </span>
             </div>
-            <a href="" class="mt-2 w-100 btn btn-outline-primary">VER MAS</a>
+            <a href="product/detail/<%= product.id %> " class="mt-2 w-100 btn btn-outline-primary">VER MAS</a>
         </div>
     </div>
 </div>

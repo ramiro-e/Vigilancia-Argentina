@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <%- include('../partials/head'); %>
-</head>
+<%- include('../partials/head'); %>
 <body>
     <%- include('../partials/header'); %>
     <main class="bg-light  min-vh-100">
@@ -88,7 +86,7 @@
                 <div class="col-lg-9">
                     <div class="my-1 row row-cols-1 row-cols-sm-2 row-cols-xl-3 g-4">
                         <% products.forEach( product => { %>
-                            <%- include('../partials/productCard'); %>
+                            <%- include('../partials/productCard', {product: product}); %>
                         <% }); %>
                     </div>
                     <div class="d-flex justify-content-center my-4">
