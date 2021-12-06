@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../../partials/head'); %>
+<body class="bg-light min-vh-100">
+    <%- include('../../partials/header') %>
+    <main>
+        <% if(typeof(errors) != 'undefined'){%>
+            <div>
+                <ul class="list-unstyled">
+                    <% errors.forEach(error => { %>
+                        <li class="my-1 px-2 py-1 alert alert-danger"><%= error.msg %></li>
+                    <%});%>
+                </ul>
+            </div>
+        <%}%>  
+        <section class="">
+            <form action="/admin/product/create" id="form" method="POST" enctype="multipart/form-data">
+                <div class="d-flex justify-content-center">
+                    <div class="container-md bg-white p-4 rounded my-md-5">
+                        <div class="row wrapper">
+                            <h2 class="text-center my-4">Agregar un nuevo producto</h2>
+                            <div class="col-12">
+                                <label for="name" id="name" class="small text-secondary">Articulo</label>
+                                <input type="text" name="name" id="name" class="form-control">
+                                <small id="name" class="d-none text-danger">error message</small>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label for="category" id="category" class="small text-secondary">Categoria</label>
+                                <select name="category" id="category" class="form-select">
+
+                                </select>
+                                <small id="category" class="d-none text-danger">error message</small>
+                            </div>                        
+                            <div class="col-12 col-md-6">
+                                <label for="subcategory" id="subcategory" class="small text-secondary">Subcategoria</label>
+                                <select name="subcategory" id="subcategory" class="form-select">
+
+                                </select>
+                                <small id="subcategory" class="d-none text-danger">error message</small>
+                            </div>
+                            <div class="col-12">
+                                <label for="brand" id="brand" class="small text-secondary">Marca</label>
+                                <select name="brand" id="brand" class="form-select">
+
+                                </select>
+                                <small id="brand" class="d-none text-danger">error message</small>
+                            </div>
+                            <div class="col-12">
+                                <label for="model" id="model" class="small text-secondary">Modelo</label>
+                                <input type="text" name="model" id="model" class="form-control">
+                                <small id="model" class="d-none text-danger">error message</small>
+                            </div>
+                            <div class="col-12">
+                                <label for="detail" id="detail" class="small text-secondary">Detalles</label>
+                                <textarea name="detail" id="detail" class="form-control"></textarea>
+                                <small id="detail" class="d-none text-danger">error message</small>
+                            </div>
+                            <div class="col-12">
+                                <label for="description" id="description" class="small text-secondary">Caracteristicas</label>
+                                <textarea name="description" id="description" class="form-control"></textarea>
+                                <small id="description" class="d-none text-danger">error message</small>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="image" id="image" class="small text-secondary">Imagenes</label>
+                                <input type="file" name="image" id="image" multiple class="form-control">
+                                <small id="image" class="d-none text-danger">error message</small>
+                            </div>
+
+                            <div class="col-12 col-sm-9">
+                                <label for="price" id="price" class="small text-secondary">Precio</label>
+                                <input type="text" name="price" id="price" class="form-control">
+                                <small id="price" class="d-none text-danger">error message</small>
+                            </div>
+
+                            <div class="col-12 col-sm-3">
+                                <label for="discount" id="discount" class="small text-secondary">Descuento</label>
+                                <input type="text" name="discount" id="discount" class="form-control">
+                                <small id="discount" class="d-none text-danger">error message</small>
+                            </div>
+                            
+                            <div class="col-12">
+                                <label for="stock" id="stock" class="small text-secondary">Stock</label>
+                                <input type="text" name="stock" id="stock" class="form-control">
+                                <small id="stock" class="d-none text-danger">error message</small>
+                            </div>
+                            <div class="col-12">
+                                <label for="status" id="status" class="small text-secondary">Estado</label>
+                                <select name="status" id="status" class="form-control">
+                                    <option value="1">Activo</option>
+                                    <option value="2">Inactivo</option>
+                                </select>
+                                <small id="status" class="d-none text-danger">error message</small>
+                            </div>
+                            <div class="col-12">
+                                <label for="sku" id="sku" class="small text-secondary">Codigo de barra</label>
+                                <input type="text" name="sku" id="sku" class="form-control">
+                                <small id="sku" class="d-none text-danger">error message</small>
+                            </div>
+                            <div class="float-end">
+                                <button type="submit" id="formSubmitButton" class="mt-4 btn btn-primary">Crear Producto</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </form>
+        </section>
+        
+    </main>
+    <%- include('../../partials/footer') %>
+    <script src="/javascripts/newProduct.js"></script>
+</body>
+</html>
