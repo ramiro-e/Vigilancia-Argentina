@@ -11,24 +11,40 @@ module.exports =  function(sequelize, dataTypes) {
             type:dataTypes.STRING,
             allowNull: false
         },
-        categoryId: {
+        subcategoryId: {
             type: dataTypes.INTEGER,
             allowNull: false
         },
-        productName: {
-            type:dataTypes.STRING,
+        brandId: {
+            type: dataTypes.INTEGER,
             allowNull: false
         },
-        description: {
+        model: {
+            type: dataTypes.STRING,
+            allowNull: false
+        },
+        name: {
             type:dataTypes.STRING,
             allowNull: false
         },
         detail: {
-            type:dataTypes.STRING,
+            type:dataTypes.TEXT,
             allowNull: false
         },
+        description: {
+            type:dataTypes.TEXT,
+            allowNull: false
+        },
+        specsheet: {
+            type:dataTypes.TEXT,
+            allowNull: true
+        },
+        downloads: {
+            type:dataTypes.TEXT,
+            allowNull: true
+        },
         image: {
-            type:dataTypes.STRING,
+            type:dataTypes.TEXT,
             allowNull: false
         },
         price: {
@@ -61,10 +77,10 @@ module.exports =  function(sequelize, dataTypes) {
     let Product = sequelize.define(alias, cols, config);
 
     Product.associate = function (models) {
-        Product.belongsTo(models.Category,
+        Product.belongsTo(models.Subcategory,
             {
-                as: "category",
-                foreingKey: "categoryId"
+                as: "subcategory",
+                foreingKey: "subcategoryId"
             }
         );
     }
