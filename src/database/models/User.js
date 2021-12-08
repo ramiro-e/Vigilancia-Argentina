@@ -1,98 +1,98 @@
-module.exports =  (sequelize, DataTypes) => {
+module.exports =  (sequelize, dataTypes) => {
     let alias = "User"
     let cols = {
         id: {
-            type: DataTypes.INTEGER.UNSIGNED,
+            type: dataTypes.INTEGER.UNSIGNED,
             primaryKey: true,
             allowNull: false,
             autoIncrement: true
         },
         companyName:{
-            type: DataTypes.STRING,
+            type: dataTypes.STRING,
             allowNull: false
         },
         activity:{
-            type: DataTypes.STRING,
+            type: dataTypes.STRING,
             allowNull: false
         },
         cuit:{
-            type: DataTypes.INTEGER,
+            type: dataTypes.INTEGER,
             allowNull: false
         },
         web:{
-            type: DataTypes.STRING,
+            type: dataTypes.STRING,
             allowNull: false
         },
         phone:{
-            type: DataTypes.STRING,
+            type: dataTypes.STRING,
             allowNull: false
         },
         country:{
-            type: DataTypes.STRING,
+            type: dataTypes.STRING,
             allowNull: false
         },
         province:{
-            type: DataTypes.STRING,
+            type: dataTypes.STRING,
             allowNull: false
         },
         city:{
-            type: DataTypes.STRING,
+            type: dataTypes.STRING,
             allowNull: false
         },
         street:{
-            type: DataTypes.STRING,
+            type: dataTypes.STRING,
             allowNull: false
         },
         streetAdress:{
-            type: DataTypes.STRING,
+            type: dataTypes.STRING,
             allowNull: false
         },
         apartmentFloor:{
-            type: DataTypes.STRING,
+            type: dataTypes.STRING,
             allowNull: false
         },
         apartmentUnit:{
-            type: DataTypes.STRING,
+            type: dataTypes.STRING,
             allowNull: false
         },
         postalCode:{
-            type: DataTypes.STRING,
+            type: dataTypes.STRING,
             allowNull: false
         },
         firstName:{ 
-            type: DataTypes.STRING,
+            type: dataTypes.STRING,
             allowNull: false
         },
         lastName:{ 
-            type: DataTypes.STRING,
+            type: dataTypes.STRING,
             allowNull: false
         },
         position:{
-            type: DataTypes.STRING,
+            type: dataTypes.STRING,
             allowNull: false
         },
         birthDay:{
-            type: DataTypes.INTEGER,
+            type: dataTypes.INTEGER,
             allowNull: false
         },
         birthMonth:{
-            type: DataTypes.INTEGER,
+            type: dataTypes.INTEGER,
             allowNull: false
         },
         birthYear:{
-            type: DataTypes.INTEGER,
+            type: dataTypes.INTEGER,
             allowNull: false
         },
         email:{ 
-            type: DataTypes.STRING,
+            type: dataTypes.STRING,
             allowNull: false
         },
         password: {
-            type: DataTypes.TEXT,
+            type: dataTypes.TEXT,
             allowNull: false
         },
         acceptNewsletter:{
-            type: DataTypes.INTEGER,
+            type: dataTypes.INTEGER,
             allowNull: false
         }
     }
