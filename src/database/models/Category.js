@@ -10,6 +10,10 @@ module.exports =  function(sequelize, dataTypes) {
         category: {
             type: dataTypes.STRING,
             allowNull: false
+        },
+        subcategory: {
+            type: dataTypes.STRING,
+            allowNull: false
         }
     }
     let config = {
@@ -18,15 +22,18 @@ module.exports =  function(sequelize, dataTypes) {
     }
     
     let Category = sequelize.define(alias, cols, config);
-        
+
+   
         Category.associate = function (models) {
-            Category.hasMany(models.Subcategory,
+
+            Category.hasMany(models.Product,
                 {
-                    as: "subcategory",
+                    as: "products",
                     foreingKey: "categoryId"
                 }
-            );
-        }    
+                );
+
+        }
     
     return Category;
 }
