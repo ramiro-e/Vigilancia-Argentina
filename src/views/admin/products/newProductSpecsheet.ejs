@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../../partials/head'); %>
+<body class="bg-light min-vh-100">
+    <%- include('../../partials/header') %>
+    <main>
+        <section>
+            <form action="/admin/product/create" id="form" method="POST" enctype="multipart/form-data">
+                <div class="d-flex justify-content-center">
+                    <div class="container-md bg-white p-4 rounded my-md-5">
+                        <div class="row wrapper">
+                            <h2 class="text-center my-4">Ficha Tecnica</h2>
+                            <div>                    
+                                
+                                <div class="row wrapper">
+                                    <div class="col-12 col-sm-4">
+                                        <label for="specsheetProperty" id="specsheetProperty" class="small text-secondary">Propiedad</label>
+                                        <input type="text" name="specsheetProperty" id="specsheetProperty" class="form-control">
+                                        <small id="specsheetProperty" class="d-none text-danger">error message</small>
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <label for="specsheetDescription" id="specsheetDescription" class="small text-secondary">Descripcion</label>
+                                        <input type="text" name="specsheetDescription" id="specsheetDescription" class="form-control">
+                                        <small id="specsheetDescription" class="d-none text-danger">error message</small>
+                                    </div>
+
+                                    <div class="col-12 col-sm-2 text-end">
+                                        <button type="button" id="specsheetSubmitButton" class="mt-4 w-100 btn btn-light">Agregar</button>
+                                    </div>
+                                </div>
+
+                                <div class="my-4">
+                                    <table class="table table-sm">
+                                        <tbody id="table-row">
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="float-end">
+                                    <button type="submit" id="formSubmitButton" class="btn btn-primary px-4">Siguiente</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </form>
+        </section>
+        
+    </main>
+    <%- include('../../partials/footer') %>
+    <script src="/javascripts/newProductSpecsheet.js"></script>
+</body>
+</html>

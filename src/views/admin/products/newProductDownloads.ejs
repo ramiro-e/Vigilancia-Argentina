@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../../partials/head'); %>
+<body class="bg-light min-vh-100">
+    <%- include('../../partials/header') %>
+    <main>
+        <section>
+            <form action="/admin/product/create" id="form" method="POST" enctype="multipart/form-data">
+                <div class="d-flex justify-content-center">
+                    <div class="container-md bg-white p-4 rounded my-md-5">
+                        <h2 class="text-center my-4">Descargas</h2>
+                        <div class="row wrapper">
+                            <div class="col-12 col-sm-3">
+                                <label for="downloadCategory" id="downloadCategory" class="small text-secondary">Categoria</label>
+                                <select name="downloadCategory" id="downloadCategory" class="form-select">
+                                    <option value="specsheet">Ficha Tecnica</option>
+                                    <option value="resources">Recursos</option>
+                                    <option value="manuals">Manuales</option>
+                                    <option value="software">Software</option>
+                                    <option value="FAQ">Preguntas</option>
+                                </select>
+                                <small id="downloadCategory" class="d-none text-danger">error message</small>
+                            </div>
+                            <div class="col-12 col-sm-9">
+                                <label for="downloadName" id="downloadName" class="small text-secondary">Nombre</label>
+                                <input type="text" name="downloadName" id="downloadName" class="form-control">
+                                <small id="downloadName" class="d-none text-danger">error message</small>
+                            </div>
+                            <div class="col-12 col-sm-3">
+                                <label for="downloadType" id="downloadType" class="small text-secondary">Tipo</label>
+                                <select name="downloadType" id="downloadType" class="form-select">
+                                    <option value="PDF">PDF</option>
+                                    <option value="HTML">HTML</option>
+                                    <option value="ZIP">ZIP</option>
+                                    <option value="URL">URL</option>
+                                    <option value="YOUTUBE">YOUTUBE</option>
+                                </select>
+                                <small id="downloadType" class="d-none text-danger">error message</small>
+                            </div>
+                            <div class="col-12 col-sm-7">
+                                <label for="downloadLink" id="downloadLink" class="small text-secondary">URL</label>
+                                <input type="text" name="downloadLink" id="downloadLink" class="form-control">
+                                <small id="downloadLink" class="d-none text-danger">error message</small>
+                            </div>
+
+                            <div class="col-12 col-sm-2 text-end">
+                                <button type="button" id="downloadSubmitButton" class="mt-4 w-100 btn btn-light">Agregar</button>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="my-4">
+                                <table id="table" class="table table-sm">
+
+                                </table>
+                            </div>
+
+                            <div class="float-end">
+                                <button type="submit" id="formSubmitButton" class="btn btn-primary">Siguiente</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                
+            </form>
+        </section>
+        
+    </main>
+    <%- include('../../partials/footer') %>
+    <script src="/javascripts/newProductDownloads.js"></script>
+</body>
+</html>
