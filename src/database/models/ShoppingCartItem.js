@@ -8,7 +8,7 @@ module.exports = function(sequelize, dataTypes){
         },       
         salePrice: {
             type: dataTypes.DECIMAL,
-            allowNull: false
+            allowNull: true
         },        
         quantity: {
             type: dataTypes.INTEGER,
@@ -16,7 +16,7 @@ module.exports = function(sequelize, dataTypes){
         },        
         subtotal: {
             type: dataTypes.DECIMAL,
-            allowNull: false
+            allowNull: true
         },
         status: {
             type: dataTypes.INTEGER,
@@ -39,26 +39,24 @@ module.exports = function(sequelize, dataTypes){
         timestamps: true
     }
 
-    let shoppingCartItems = sequelize.define(alias, cols, config)
+    let ShoppingCartItem = sequelize.define(alias, cols, config)
 
-    shoppingCartItems.associate = function (models){
-        shoppingCartItems.belongsTo(models.Product, {
-            as: "product",
+    ShoppingCartItem.associate = function (models){
+
+        ShoppingCartItem.belongsTo(models.Product, {
             foreignKey: "productId",
+            as:"product"
         });
-    }
-    shoppingCartItems.associate = function (models){    
-        shoppingCartItems.belongsTo(models.User, {
-            as: "user",
+
+        ShoppingCartItem.belongsTo(models.User, {
             foreignKey: "userId",
         });
-    }
-    shoppingCartItems.associate = function (models){
-        shoppingCartItems.belongsTo(models.Order, {
-            as: "order",
+
+        ShoppingCartItem.belongsTo(models.Order, {
             foreignKey: "orderId",
         });
+
     }
 
-    return shoppingCartItems
+    return ShoppingCartItem
 }

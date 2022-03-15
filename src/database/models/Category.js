@@ -11,7 +11,7 @@ module.exports =  function(sequelize, dataTypes) {
             type: dataTypes.STRING,
             allowNull: false
         },
-        subcategory: {
+        path: {
             type: dataTypes.STRING,
             allowNull: false
         }
@@ -23,17 +23,13 @@ module.exports =  function(sequelize, dataTypes) {
     
     let Category = sequelize.define(alias, cols, config);
 
-   
-        Category.associate = function (models) {
+    Category.associate = function (models) {
+        Category.hasMany(models.Subcategory,
+            {
+                foreingKey: "categoryId"
+            }
+        );
+    }
 
-            Category.hasMany(models.Product,
-                {
-                    as: "products",
-                    foreingKey: "categoryId"
-                }
-                );
-
-        }
-    
     return Category;
 }

@@ -77,12 +77,16 @@ module.exports =  function(sequelize, dataTypes) {
     let Product = sequelize.define(alias, cols, config);
 
     Product.associate = function (models) {
-        Product.belongsTo(models.Subcategory,
-            {
-                as: "subcategory",
-                foreingKey: "subcategoryId"
-            }
-        );
+
+        Product.belongsTo(models.Subcategory,{
+            foreingKey: "subcategoryId"
+        });
+
+        Product.hasMany(models.ShoppingCartItem,{
+            foreingKey: "productId",
+            as:"product"
+        });
+
     }
 
     return Product;
