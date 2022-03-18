@@ -20,13 +20,5 @@ module.exports = {
             })
         })
         .catch(error => res.send(error))
-    },
-    catalog: (req,res)=>{
-        Products.findAll()
-        .then ((products)=>{res.render(path.resolve(__dirname, '../views/main/catalog'), {
-            title: "Catalogo | Vigilancia Argentina",
-            products,
-        })})
-        .catch(error => res.send(error))
     }
 }
