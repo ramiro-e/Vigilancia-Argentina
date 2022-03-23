@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+    <%- include('../../partials/head'); %>
+    <body>
+        <%- include('../../partials/header'); %>
+            <main>
+                <br>
+                <section class="row" style="width: 80%; margin: 0 auto;">
+                  <article class="col-12 ">
+                    <h2 class="display-6 blue text-center pt-2"><i class="fas fa-users"></i>       Administrador de Usuarios</h2>
+                  </article>
+                  <article class="col-12">
+                    <a href="/admin/usuarios/crearAdmin"><ion-icon name="add-circle-outline"></ion-icon>Agregar un usuario interno</a>
+                  </article>
+                  <article class="col-12" >
+                  <table class="table">
+                      <thead>
+                        <tr>
+                          <th scope="col">Id</th>
+                          <th scope="col">Nombre</th>
+                          <th scope="col">Ver</th>
+                          <th scope="col">Editar</th>
+                          <th scope="col">Borrar</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <% usuarios.forEach( usuario => { %>
+                        <tr>
+                          <td><%= usuario.id%> </td>
+                          <td><%= usuario.firstName%> <%= usuario.lastName%></td>
+                          <td><a href="/"> <ion-icon name="eye-outline"></ion-icon></a></td>
+                          <td><a href="/admin/editarUsuario/<%= usuario.id%> "> <ion-icon name="pencil-outline"></ion-icon></a></td>
+                          <td><form action="/admin/eliminarUsuario/<%= usuario.id%>?_method=DELETE" method="POST"><button type="submit"><ion-icon name="trash-outline"></ion-icon></ion-icon></button></form></td>
+                        </tr>
+                        <% }); %>
+                      </tbody>
+                    </table> 
+                  </article>       
+                </section>
+                <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
+            </main>
+        <%- include('../../partials/footer'); %>
+    </body>
+</html>

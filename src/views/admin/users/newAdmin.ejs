@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('../../partials/head'); %>
+<body>
+    <%- include('../../partials/header') %>
+    <main>
+        <% if(typeof(errors) != 'undefined'){%>
+            <ul class="alert alert-danger">
+               <% errors.forEach(error => { %>
+                  <li><%= error.msg%></li>
+               <%});%>
+             </ul>
+         <%}%>    
+        <h2 class="blue">Agregar un usuario interno</h2>
+        <form action="/admin/crearAdmin" method="POST" onsubmit=" return validaciones()" enctype="multipart/form-data" id="formulario">
+                <label for="first_name">Nombre</label>
+                <input type="text" name="first_name" id="first_name" placeholder="Nombre">
+                <label for="last_name">Apellido</label>
+                <input type="text" name="last_name" id="last_name" placeholder="Apellido">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" placeholder="tucorreo@email.com" >
+                <label for="password">Constraseña</label>
+                <input type="text" name="password" id="password" placeholder="Contraseña">
+                <label for="tipo">Tipo de usuario</label>
+                <select name="tipo" id="">
+                        <option value="7">Super administrador</option>
+                        <option value="6" selected="selected">Administrador</option>
+                        <option value="3">Encargado de cobranzas</option>
+                        <option value="4">Encargado de ventas</option>
+                        <option value="5">Encargado de envios</option>
+                </select>
+                <div class="image-uploa">
+                    <label for="file-input">Foto de perfil</label>
+                    <input type="file" name="avatar">
+                </div>
+                <input type="submit" value="Enviar" class="boton" >
+        </form>
+    </main>
+    <%- include('../../partials/footer') %>
+    <script src="js/createEditProduct.js"></script>
+</body>
+</html>
