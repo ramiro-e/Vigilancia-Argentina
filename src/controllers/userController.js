@@ -2,7 +2,6 @@ const path = require('path');
 const bcrypt = require('bcryptjs');
 const db = require('../database/models');
 const { validationResult } = require('express-validator')
-const dbProduct = db.Product;
 const Users = db.User
 
 
@@ -15,7 +14,6 @@ module.exports = {
     access: (req, res) => {
         let validation = validationResult(req);             //return res.send(errors.mapped());
         let errors = validation.errors;
-        console.log(errors);
         if(validation.isEmpty()){
             Users.findOne({
                 where:{email:req.body.email}
@@ -30,6 +28,7 @@ module.exports = {
             })
             .catch(error => console.log(error))
         }else{
+            console.log(errors)
             res.render(path.resolve(__dirname, '../views/user/login'),{
                 title: "Ingresar | Vigilancia Argentina",
                 errors
