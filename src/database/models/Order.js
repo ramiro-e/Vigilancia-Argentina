@@ -8,6 +8,7 @@ module.exports =  (sequelize, dataTypes) => {
         },
         total:{type: dataTypes.INTEGER},
         status:{type: dataTypes.INTEGER},
+        couponId:{type: dataTypes.INTEGER},
         userId:{type: dataTypes.INTEGER},
         paymentId:{type: dataTypes.INTEGER},
         shippingId:{
@@ -23,50 +24,28 @@ module.exports =  (sequelize, dataTypes) => {
     const Order = sequelize.define(alias, cols, config);
 
     Order.associate = function (models) {
-        Order.belongsTo(models.Payment,{
-                as: "payment",
-                foreingKey: "paymentId"
-            }
-        );
-    }
 
-    Order.associate = function (models) {
+        Order.belongsTo(models.Coupon,{
+            as: "coupon",
+            foreingKey: "couponId"
+        });
+
         Order.belongsTo(models.User,{
-                as: "user",
-                foreingKey: "userId"
-            }
-        );
-    }
+            as: "user",
+            foreingKey: "userId"
+        });
 
-    Order.associate = function (models) {
+        Order.belongsTo(models.Payment,{
+            as: "payment",
+            foreingKey: "paymentId"
+        });
+
         Order.belongsTo(models.ShippingOrder,{
-                as: "shippingOrder",
-                foreingKey: "shippingId"
-            }
-        );
-    }
+            as: "shippingOrder",
+            foreingKey: "shippingId"
+        });
 
+    }
     
-    Order.associate = function (models) {
-        Order.hasMany(models.Payment,{
-            as: "order",
-            foreingKey: "orderId"
-        });
-    }
-
-    Order.associate = function (models) {
-        Order.hasMany(models.ShippingOrder,{
-            as: "order",
-            foreingKey: "orderId"
-        });
-    }
-
-    Order.associate = function (models) {
-        Order.hasMany(models.ShoppingCartItem,{
-            as: "order",
-            foreingKey: "orderId"
-        });
-    }
-
     return Order;
 }
