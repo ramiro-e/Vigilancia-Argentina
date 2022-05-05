@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('../../partials/head'); %>
+<body>
+    <%- include('../../partials/header') %>
+    <main>
+        <% if(typeof(errors) != 'undefined'){%>
+            <ul class="alert alert-danger">
+               <% errors.forEach(error => { %>
+                    <li><%= error.msg%></li>
+               <%});%>
+            </ul>
+        <%}%>
+        <h2 class="blue">Editar envio</h2>
+        <form action="/admin/envios/editar/<%= envio.id%>?_method=PUT" method="POST" enctype="multipart/form-data" id="formulario">
+            <div>
+                <p><span><input type="text" name="first_name" id="first_name" placeholder="Nombre" value="<%= envio.%>"></span><span>
+                    <input type="text" name="last_name" id="last_name" placeholder="Apellido" value="<%= envio.%>"></span></p>
+                    <input type="email" name="email" id="email" placeholder="tucorreo@email.com" value="<%= envio.%>">
+                    <input type="text" name="password" id="password" placeholder="Contraseña">
+                    <div class="image-uploa">
+                        <label for="file-input">
+                            Foto de perfil
+                        </label>
+                    <input type="file" name="avatar">
+                    </div>
+                    <input type="submit" value="Enviar" class="boton" >
+            </div>
+            <div>
+                <p><span><input type="text" name="first_name" id="first_name" placeholder="Nombre" value="<%= envio.%>"></span><span>
+                    <input type="text" name="last_name" id="last_name" placeholder="Apellido" value="<%= envio.%>"></span></p>
+                    <input type="email" name="email" id="email" placeholder="tucorreo@email.com" value="<%= envio.%>">
+                    <input type="text" name="password" id="password" placeholder="Contraseña">
+                    <div class="image-uploa">
+                        <label for="file-input">
+                            Foto de perfil
+                        </label>
+                    <input type="file" name="avatar">
+                    </div>
+                    <input type="submit" value="Enviar" class="boton" >
+            </div>
+        </form>
+    </main>
+    <%- include('../../partials/footer') %>
+    <script src="js/createEditProduct.js"></script>
+</body>
+</html>
