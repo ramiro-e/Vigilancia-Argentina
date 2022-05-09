@@ -1,0 +1,67 @@
+<div class="col-lg-3">
+                    <div class="row mt-1 ">
+                        <div class="col-sm-12 bg-white mt-4 rounded border py-2">
+                            <div class="d-flex align-items-center justify-content-center text-secondary h5 p-2  my-1 rounded bg-light">
+                                <i class="fas fa-filter"></i> <span class="ms-2">Filtros</span>                         
+                            </div>
+                            <ul class="nav nav-pills flex-column" id="menu">
+                                <li class=" w-100">
+                                    <span>Ordenar por</span>
+                                    <ul class="ms-2  nav flex-column" id="orderby" data-bs-parent="#menu">
+                                        <li class=" w-100">
+                                            <a href="#" class="text-decoration-none text-decoration-none text-secondary"><small>Mas populares</small> </a>
+                                        </li>
+                                        <li class=" w-100">
+                                            <a href="#" class="text-decoration-none text-decoration-none text-secondary"><small>Añadidos recientemente</small> </a>
+                                        </li>
+                                        <li class=" w-100">
+                                            <a href="#" class="text-decoration-none text-decoration-none text-secondary"><small>Mayor precio</small> </a>
+                                            
+                                        </li>
+                                        <li class=" w-100">
+                                            <a href="#" class="text-decoration-none text-decoration-none text-secondary"><small>Menor precio</small> </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <span>Categoria</span>
+                                    <ul class="ms-2  nav flex-column" id="category" data-bs-parent="#menu">
+                                        <% if(typeof(categories) != 'undefined'){categories.forEach( category => { %>
+                                            <li class=" w-100">
+                                                <a href="#" class="text-decoration-none text-decoration-none text-secondary"><small><%= category.name %></small></a>
+                                            </li>
+                                        <% })} %>
+                                    </ul>
+                                </li>
+                                <li>
+                                        <span>Marca</span>
+                                    <ul class="ms-2  nav flex-column" id="brand" data-bs-parent="#menu">
+                                        <% if(typeof(brands) != 'undefined'){brands.forEach( brand => { %>
+                                            <li class=" w-100">
+                                                <a href="#" class="text-decoration-none text-decoration-none text-secondary"><small><%= brand.brand %></small></a>
+                                            </li>
+                                        <% })} %>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <span>Precio</span>
+                                    <ul class=" nav flex-column" id="price" data-bs-parent="#menu">
+                                        <li class="w-100">
+                                            <div>
+                                                <form action="/price">
+                                                    <div class="my-2 d-flex">
+                                                        <input type="text" name="min" id="" class="w-50 mx-1 form-control" placeholder="Min">
+                                                        <input type="text" name="max" id="" class="w-50 mx-1 form-control" placeholder="Max">
+                                                    </div>
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <button type="submit" class="w-100 mx-1 btn btn-outline-primary"><span>Filtrar</span> <i class="fas fa-filter"></i> </button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
