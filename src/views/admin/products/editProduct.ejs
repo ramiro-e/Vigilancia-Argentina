@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('../../partials/head'); %>
+<body>
+    <%- include('../../partials/header') %>
+    <main>
+        <% if(typeof(errors) != 'undefined'){%>
+            <ul class="alert alert-danger">
+               <% errors.forEach(error => { %>
+                    <li><%= error.msg%></li>
+               <%});%>
+            </ul>
+        <%}%>
+        <h2 class="blue">Agregar un nuevo producto</h2>
+        <form action="/admin/producto/editar/<%= producto.id%>?_method=PUT" method="POST" onsubmit=" return validaciones()" enctype="multipart/form-data" id="formulario">
+            <div>
+                <img src="/img/<%= producto.image %>" alt="Imagen de <%= producto.productName %>">
+                <input type="file" name="imagen">
+            </div>
+            <div>
+                <label for="articulo">Artículo</label>
+                <input type="text" name="articulo" value="<%= producto.productName %>">
+                <label for="descripcion">Descripcion</label>
+                <input type="text" name="descripcion" value="<%= producto.description %>"/>
+                <label for="detail">Detalle de producto</label>
+                <textarea name="detail"><%= producto.detail %></textarea>
+                <label for="categoria">Categoria</label>
+                <select name="categoria" id="">
+                    <% categorias.forEach( categoria => { %>
+                        <option value="<%= categoria.id %>"<%=categoria.id==producto.categoryId?'selected':null%>><%= categoria.name %></option>
+                    <% }); %>
+                </select>
+                <label for="subcategoria">Subcategoria</label>
+                <select name="subcategoria" id="">
+                    <% subcategorias.forEach( subcategoria => { %>
+                        <option value="<%= subcategoria.id %>"><%= subcategoria.name %></option>
+                    <% }); %>
+                </select>
+            </div>
+            <div>
+                <label for="stock">Stock</label>
+                <input type="text" name="stock" value="<%= producto.stock %>">
+                <label for="status">Estado</label>
+                <input type="text" name="status" value="<%= producto.stock %>">
+                <label for="sku">Codigo de barra</label>
+                <input type="text" name="sku" value="<%= producto.sku %>">
+                <label for="descuento">Descuento</label>
+                <input type="text" name="descuento" value="<%= producto.discount %>">
+                <label for="precio">Precio</label>
+                <input type="text" name="precio" value="<%= producto.price %>">
+                <button type="submit">Guardar cambios</button>
+            </div>
+        </form>
+    </main>
+    <%- include('../../partials/footer') %>
+    <script src="js/createEditProduct.js"></script>
+</body>
+</html>
