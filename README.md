@@ -16,7 +16,7 @@ Ecommerce del rubro de la videovigilancia y seguridad apuntado a empresas y dist
 
 ## Tech Stack
 
-![Captura de pantalla 2023-02-19 - 11 08 55](https://user-images.githubusercontent.com/76258273/219953728-ad49d2a1-934f-41f0-8694-60ec7515d000.png)
+![Captura de pantalla 2023-02-19 - 11 10 53](https://user-images.githubusercontent.com/76258273/219953810-b2fcdc77-cd6a-4665-9cfc-1a0b30e140c7.png)
 
 
 ## Demo
