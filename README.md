@@ -2,9 +2,6 @@
 
 Ecommerce del rubro de la videovigilancia y seguridad apuntado a empresas y distribuidores
 
-![vigilancia-argentina](https://user-images.githubusercontent.com/76258273/219909150-fe3d1f65-af80-4f06-bad2-5b874ea75ae7.gif)
-
-
 ## Caracteristicas
 
 - Diseño responsive
@@ -18,6 +15,8 @@ Ecommerce del rubro de la videovigilancia y seguridad apuntado a empresas y dist
 
 
 ## Tech Stack
+
+![Captura de pantalla 2023-02-19 - 11 08 55](https://user-images.githubusercontent.com/76258273/219953584-d35a33f5-fb1b-4169-bcb2-614c332b4dde.png)
 
 
 ## Demo
@@ -46,3 +45,6 @@ Correr
 - Hacer un sistema de administracion completo para gestionar pedidos, envios y demas
 - Bastante javascript
 
+## Screenshots
+
+![vigilancia-argentina](https://user-images.githubusercontent.com/76258273/219909150-fe3d1f65-af80-4f06-bad2-5b874ea75ae7.gif)
